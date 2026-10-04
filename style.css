@@ -25,7 +25,8 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       135deg,
       rgba(0, 153, 219, 0.9) 0%,
       rgba(0, 104, 181, 0.9) 50%,
@@ -348,6 +349,46 @@ select {
   color: #475569;
 }
 
+/* Attendee list */
+.attendee-list {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #f1f5f9;
+}
+
+.attendee-list h3 {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.attendee-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.attendee-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.attendee-list li.water {
+  background-color: #e8f7fc;
+}
+.attendee-list li.zero {
+  background-color: #ecfdf3;
+}
+.attendee-list li.power {
+  background-color: #fff7ed;
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .hero {
@@ -380,5 +421,113 @@ select {
 
   .teams-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Welcome celebration popup */
+.celebration {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 60, 116, 0.45);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.celebration.show {
+  display: flex;
+  animation: overlay-fade 0.3s ease;
+}
+
+.celebration-box {
+  position: relative;
+  background: rgba(0, 40, 85, 0.85);
+  width: 90%;
+  max-width: 460px;
+  padding: 36px 30px;
+  border-radius: 16px;
+  border-top: 6px solid #0071c5;
+  box-shadow: 0 10px 40px rgba(0, 60, 116, 0.25);
+  text-align: center;
+  z-index: 1001;
+  animation: popup-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.celebration-box p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
+.team-text.water {
+  color: #00a3e0;
+}
+
+.team-text.zero {
+  color: #2e9e4f;
+}
+
+.team-text.power {
+  color: #e6a700;
+}
+
+.celebration-box button {
+  margin: 24px auto 0;
+}
+
+@keyframes overlay-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popup-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.confetti {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 14px;
+  animation: confetti-fall 3s linear infinite;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+/* Desktop: name, team, and button share the row in equal thirds */
+@media (min-width: 769px) {
+  .form-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .input-wrapper {
+    display: contents;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group button {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 }

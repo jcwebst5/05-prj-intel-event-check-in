@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -81,6 +81,12 @@
           </div>
         </div>
       </div>
+
+      <!-- Attendee list -->
+      <div class="attendee-list">
+        <h3>Checked-In Attendees</h3>
+        <ul id="attendeeList"></ul>
+      </div>
     </div>
 
     <footer class="footer">
@@ -91,6 +97,22 @@
         >Sustainability Goals</a
       >
     </footer>
+
+    <!-- Welcome celebration popup -->
+    <div id="celebration" class="celebration">
+      <div class="celebration-box">
+        <p id="celebrationMessage"></p>
+        <button type="button" id="closeCelebration">Close</button>
+      </div>
+    </div>
+
+    <!-- Attendance goal popup -->
+    <div id="goalPopup" class="celebration">
+      <div class="celebration-box">
+        <p id="goalMessage"></p>
+        <button type="button" id="closeGoal">Close</button>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
